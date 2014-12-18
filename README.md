@@ -3,6 +3,7 @@ PML-Lifting
 
 <i>Description of my solution for the PML Coursera assignment</i>
 
+
 <h5>Exploratory analysis</h5>
 
 The pml-training dataset, as well as the pml-testing one, seems to be split into two main parts:
@@ -12,6 +13,7 @@ The pml-training dataset, as well as the pml-testing one, seems to be split into
 Columns correspond to either one or the other type of data, they are complementary, which leads to a lot of NAs. Only about 1/3 of columns concern real-time data (not counting the 'general information' columns like timeframe or name of the weightlifter). However the number of rows of window agregated data is... 2% of the total dataset. As we need to choose between the two types of data (which are two subsets of variables, whose meaningful ones are complementary), the best option is therefore to delete the 2% of window agregated data, and the corresponding variables. That way, we don't have any NA anymore, keep 98% of the data but 100% of the meaningful data (we deleted the agregated data based on the raw data we kept).
 
 `training1 <- training[training$new_window=="no", ]`
+
 
 <h5>Finding the good model</h5>
 
@@ -72,6 +74,7 @@ And here are the predictions on the test set:
 - SVM: B A B A A A D B A A D C B A E E A B B B
 
 Logistic Regression has again some difficulties. RF and SVM do not converge more with a more well-trained model, but 2 disagreements between them seems acceptable. Given the higher score of the RF model compared to the others, I would choose this one prediction.
+
 
 <h5> Going further </h5>
 
