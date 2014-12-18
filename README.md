@@ -14,11 +14,11 @@ Columns correspond to either one or the other type of data, they are complementa
 <h5>Finding the good model</h5>
 
 Once I got the correct rows and variables, it is time to start training (and finding a good) model. I used a cross-validation split of 10 folds, on a shuffled dataset. To speed up the research of the best fitting algorithm, I first trained my model on only 1000 rows.
-
-`training2 <- training1[sample(nrow(training1)),]`
-`training2 <- training2[1:1000,]`
-`ctrl <- trainControl(method="cv", number=10)`
-
+```
+training2 <- training1[sample(nrow(training1)),]
+training2 <- training2[1:1000,]
+ctrl <- trainControl(method="cv", number=10)
+```
 I then tried to fit models with random forest, logistic regression and polynomial SVM algorithms (all are classification algorithms).
 
 `logRegFit <- train(training2[,-54], training2$classe,method="LogitBoost",tuneGrid=NULL,prox=TRUE,na.action=na.omit,trControl=ctrl)`
