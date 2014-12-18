@@ -15,15 +15,15 @@ Columns correspond to either one or the other type of data, they are complementa
 
 Once I got the correct rows and variables, it is time to start training (and finding a good) model. I used a cross-validation split of 10 folds, on a shuffled dataset. To speed up the research of the best fitting algorithm, I first trained my model on only 1000 rows.
 
-training2 <- training1[sample(nrow(training1)),]
-training2 <- training2[1:1000,]
-ctrl <- trainControl(method="cv", number=10)
+`training2 <- training1[sample(nrow(training1)),]`
+`training2 <- training2[1:1000,]`
+`ctrl <- trainControl(method="cv", number=10)`
 
 I then tried to fit models with random forest, logistic regression and polynomial SVM algorithms (all are classification algorithms).
 
-logRegFit <- train(training2[,-54], training2$classe,method="LogitBoost",tuneGrid=NULL,prox=TRUE,na.action=na.omit,trControl=ctrl)
-rfFit <- train(training2[,-54], training2$classe,method="rf",na.action=na.omit,trControl=ctrl)
-svmFit <- train(training2[,-54], training2$classe,method="svmPoly",na.action=na.omit,trControl=ctrl)
+`logRegFit <- train(training2[,-54], training2$classe,method="LogitBoost",tuneGrid=NULL,prox=TRUE,na.action=na.omit,trControl=ctrl)`
+`rfFit <- train(training2[,-54], training2$classe,method="rf",na.action=na.omit,trControl=ctrl)`
+`svmFit <- train(training2[,-54], training2$classe,method="svmPoly",na.action=na.omit,trControl=ctrl)`
 
 Here are the results for each algorithm:
 <table>
@@ -31,13 +31,13 @@ Here are the results for each algorithm:
   <th></th><th>1000 samples</th>
 </tr>
 <tr>
-  <th>Logistic Regression</th><th>0.87</th><th> </th>
+  <th>Logistic Regression</th><th>0.87</th>
 </tr>
 <tr>
-  <th>Random Forest</th><th>0.92</th><th></th>
+  <th>Random Forest</th><th>0.92</th>
 </tr>
 <tr>
-  <th>Polynomial SVM</th><th>0.86</th><th></th>
+  <th>Polynomial SVM</th><th>0.86</th>
 </tr>
 </table>
 
@@ -52,14 +52,15 @@ It's quite obvious that logistic regression has serious difficulties with its mo
 <tr>
   <th></th><th>1000 samples</th><th><b>5000 samples</b></th>
 </tr>
+
 <tr>
-  <th>Logistic Regression</th><th><b>0.92</b></th>
+  <th>Logistic Regression</th><th>0.87</th><th><b>0.92</b></th>
 </tr>
 <tr>
-  <th>Random Forest</th><th><b>0.99</b></th>
+  <th>Random Forest</th><th>0.92</th><th><b>0.99</b></th>
 </tr>
 <tr>
-  <th>Polynomial SVM</th><th><b>0.97</b></th>
+  <th>Polynomial SVM</th><th>0.86</th><th><b>0.97</b></th>
 </tr>
 </table>
 
