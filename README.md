@@ -20,11 +20,11 @@ training2 <- training2[1:1000,]
 ctrl <- trainControl(method="cv", number=10)
 ```
 I then tried to fit models with random forest, logistic regression and polynomial SVM algorithms (all are classification algorithms).
-
-`logRegFit <- train(training2[,-54], training2$classe,method="LogitBoost",tuneGrid=NULL,prox=TRUE,na.action=na.omit,trControl=ctrl)`
-`rfFit <- train(training2[,-54], training2$classe,method="rf",na.action=na.omit,trControl=ctrl)`
-`svmFit <- train(training2[,-54], training2$classe,method="svmPoly",na.action=na.omit,trControl=ctrl)`
-
+```
+logRegFit <- train(training2[,-54], training2$classe,method="LogitBoost",tuneGrid=NULL,prox=TRUE,na.action=na.omit,trControl=ctrl)
+rfFit <- train(training2[,-54], training2$classe,method="rf",na.action=na.omit,trControl=ctrl)
+svmFit <- train(training2[,-54], training2$classe,method="svmPoly",na.action=na.omit,trControl=ctrl)
+```
 Here are the results for each algorithm:
 <table>
 <tr>
