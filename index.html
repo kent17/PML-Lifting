@@ -103,7 +103,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <span class="identifier">rfFit</span> <span class="operator">&lt;-</span> <span class="identifier">train</span><span class="paren">(</span><span class="identifier">training2</span><span class="paren">[</span>,<span class="operator">-</span><span class="number">54</span><span class="paren">]</span>, <span class="identifier">training2</span><span class="operator">$</span><span class="identifier">classe</span>,<span class="identifier">method</span><span class="operator">=</span><span class="string">"rf"</span>,<span class="identifier">na.action</span><span class="operator">=</span><span class="identifier">na.omit</span>,<span class="identifier">trControl</span><span class="operator">=</span><span class="identifier">ctrl</span><span class="paren">)</span>
 <span class="identifier">svmFit</span> <span class="operator">&lt;-</span> <span class="identifier">train</span><span class="paren">(</span><span class="identifier">training2</span><span class="paren">[</span>,<span class="operator">-</span><span class="number">54</span><span class="paren">]</span>, <span class="identifier">training2</span><span class="operator">$</span><span class="identifier">classe</span>,<span class="identifier">method</span><span class="operator">=</span><span class="string">"svmPoly"</span>,<span class="identifier">na.action</span><span class="operator">=</span><span class="identifier">na.omit</span>,<span class="identifier">trControl</span><span class="operator">=</span><span class="identifier">ctrl</span><span class="paren">)</span></code></pre>
 <p>Here are the out-of-sample error results for each algorithm:</p>
-<table>
+<table border=1>
 <tbody><tr>
   <th></th><th>
 1000 samples
@@ -141,7 +141,7 @@ Polynomial SVM
 </ul>
 <p>It’s quite obvious that logistic regression has serious difficulties with its model, maybe it’s not trained enough to be able to predict clearly the test samples. The two other algorithms, at least, seem to be more reliable by predicting the same outcome. This step was just intended to have more information on the models reliability than just the cross-validation accuracy results. Let’s try to train the models with more data, 5000 (in lieu of 1000 previously) seems more acceptable. My computer can’t handle greater training sets anyway, the SVM model took about 40 min.</p>
 –
-<table>
+<table border=1>
 <tbody><tr>
   <th></th><th>
 1000 samples
