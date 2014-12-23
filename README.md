@@ -1,6 +1,9 @@
 PML-Lifting
 ===========
 
+IMPORTANT NOTE: Here is a link to my compiled HTML file as required by the assignment : http://kent17.github.io/PML-Lifting/
+(==> I added this link after the deadline, but the content is the same as this file, and none of them has been changed after the deadline)
+
 <i>Description of my solution for the PML Coursera assignment</i>
 
 
